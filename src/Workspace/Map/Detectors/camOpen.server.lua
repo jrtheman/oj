@@ -12,7 +12,9 @@ local function fuck()
 	camService:setCam()
 end
 local function onclick()
-	if not camController.canchange then return end
+	if not camController.canchange then
+		return
+	end
 	fuck()
 end
 

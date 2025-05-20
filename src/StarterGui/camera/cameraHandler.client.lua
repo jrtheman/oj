@@ -11,6 +11,8 @@ local exitButton = cameraGui:WaitForChild("exit")
 local nextButton = cameraGui:WaitForChild("next")
 local previousButton = cameraGui:WaitForChild("previous")
 
+local debounce = false
+local cd = 0.25
 
 local function onExit()
 	local cameraPos5 = cameraPos.Position5
@@ -19,12 +21,23 @@ local function onExit()
 	camService:exit()
 end
 
+local function cooldown()
+	debounce = true
+	task.wait(cd)
+	debounce = false
+end
 local function onNext()
-	camService:changePos(true)
+	if debounce == false then
+		camService:changePos(true)
+		cooldown()
+	end
 end
 
 local function onPrevious()
-	camService:changePos(false)
+	if debounce == false then
+		camService:changePos(false)
+		cooldown()
+	end
 end
 
 local function init()
