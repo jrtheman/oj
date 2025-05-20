@@ -18,7 +18,7 @@ local cd = 0.25
 
 local function where(shit: number)
 	CameraControl:ChangePos(shit)
-	CameraControl.canchange = false --//TODO put this on line 26 this shit is so ass why did i put it here
+	CameraControl.canchange = false --//TODO put cooldown function here
 end
 
 local function cooldown()
@@ -55,7 +55,7 @@ local function movement(input, ignore)
 			where(3)
 		end
 	end
-	cooldown()
+	cooldown() --why??
 end
 
 function init()
